@@ -1,164 +1,207 @@
+```html
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Find Your Seat</title>
-<style>:root {
- <style>
+
+<style>
 :root {
-  --brown:#4a2a20;
-  --blue:#1e3a5f;
-  --gold:#c9a227;
-  --ivory:#fffaf0;
+  --brown: #4a2a20;
+  --blue: #1e3a5f;
+  --gold: #c9a227;
+  --ivory: #fffaf0;
 }
 
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 body {
-  margin:0;
-  min-height:100vh;
-  font-family:Georgia, 'Times New Roman', serif;
-  background:linear-gradient(135deg,#fffaf0,#f4eee5 50%,#e9edf3);
-  color:var(--brown);
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, "Times New Roman", serif;
+  background: linear-gradient(135deg, #fffaf0, #f4eee5 50%, #e9edf3);
+  color: var(--brown);
 }
 
 .couple-photo {
-  display:block;
-  width:100%;
-  max-width:500px;
-  height:auto;
-  margin:28px auto 0;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(74,42,32,0.20);
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 28px auto 0;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(74, 42, 32, 0.20);
 }
 
 .wrap {
-  max-width:680px;
-  margin:auto;
-  padding:24px 18px 40px;
+  max-width: 680px;
+  margin: auto;
+  padding: 24px 18px 40px;
 }
 
 .card {
-  background:#fffdf8;
-  border:1px solid rgba(201,162,39,.65);
-  border-radius:22px;
-  box-shadow:0 18px 45px rgba(74,42,32,.16);
-  padding:38px 28px;
-  text-align:center;
+  background: #fffdf8;
+  border: 1px solid rgba(201, 162, 39, 0.65);
+  border-radius: 22px;
+  box-shadow: 0 18px 45px rgba(74, 42, 32, 0.16);
+  padding: 38px 28px;
+  text-align: center;
 }
 
 .kicker {
-  letter-spacing:.22em;
-  text-transform:uppercase;
-  color:#b58b3a;
-  font-size:15px;
-  font-weight:bold;
-  margin-bottom:8px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #b58b3a;
+  font-size: 15px;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 h1 {
-  margin:10px 0 8px;
-  font-size:44px;
-  color:var(--brown);
-  font-weight:normal;
-  letter-spacing:.02em;
+  margin: 10px 0 8px;
+  font-size: 44px;
+  color: var(--brown);
+  font-weight: normal;
+  letter-spacing: 0.02em;
 }
 
 p {
-  color:#5b514b;
-  font-size:20px;
-  line-height:1.6;
-  margin:10px 0 24px;
+  color: #5b514b;
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 10px 0 24px;
 }
 
 input {
-  width:100%;
-  padding:19px 20px;
-  border:2px solid #d8cbb9;
-  border-radius:16px;
-  font-size:20px;
-  outline:none;
-  text-align:center;
-  background:#fff;
+  width: 100%;
+  padding: 19px 20px;
+  border: 2px solid #d8cbb9;
+  border-radius: 16px;
+  font-size: 20px;
+  outline: none;
+  text-align: center;
+  background: #fff;
 }
 
 input:focus {
-  border-color:var(--gold);
+  border-color: var(--gold);
 }
 
 button {
-  margin-top:14px;
-  width:100%;
-  padding:18px;
-  border:0;
-  border-radius:16px;
-  background:var(--blue);
-  color:white;
-  font-size:21px;
-  font-weight:bold;
-  letter-spacing:.05em;
-  cursor:pointer;
-  box-shadow:0 8px 22px rgba(74,42,32,.20);
+  margin-top: 14px;
+  width: 100%;
+  padding: 18px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--blue);
+  color: white;
+  font-size: 21px;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(74, 42, 32, 0.20);
+}
+
+button:hover {
+  opacity: 0.92;
 }
 
 #result {
-  margin-top:20px;
-  text-align:left;
-  font-size:28px;
-  line-height:1.5;
+  margin-top: 20px;
+  text-align: left;
+  font-size: 28px;
+  line-height: 1.5;
 }
 
 .result {
-  background:#fff;
-  border-left:6px solid var(--gold);
-  border-radius:14px;
-  font-size:22px;
-  padding:17px;
-  margin:10px 0;
-  box-shadow:0 5px 16px rgba(0,0,0,.07);
+  background: #fff;
+  border-left: 6px solid var(--gold);
+  border-radius: 14px;
+  font-size: 22px;
+  padding: 17px;
+  margin: 10px 0;
+  box-shadow: 0 5px 16px rgba(0, 0, 0, 0.07);
 }
 
 .name {
-  font-size:20px;
-  font-weight:700;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .table {
-  font-size:28px;
-  color:var(--blue);
-  font-weight:700;
-  margin-top:6px;
+  font-size: 28px;
+  color: var(--blue);
+  font-weight: 700;
+  margin-top: 6px;
 }
 
 .seat {
-  color:#5b514b;
-  margin-top:3px;
+  color: #5b514b;
+  margin-top: 3px;
 }
 
 .note {
-  font-size:12px;
-  margin-top:22px;
-  color:#766c65;
+  font-size: 12px;
+  margin-top: 22px;
+  color: #766c65;
+}
+
+@media (max-width: 600px) {
+  .couple-photo {
+    margin-top: 15px;
+    border-radius: 14px;
+  }
+
+  .card {
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  p {
+    font-size: 18px;
+  }
 }
 </style>
-</style>
 </head>
+
 <body>
- <img src="59F572A4-F612-4A7B-94D9-09924CBB4739.jpeg" alt="Deidre and Tye" class="couple-photo">
+
+<img src="59F572A4-F612-4A7B-94D9-09924CBB4739.jpeg"
+     alt="Deidre and Tye"
+     class="couple-photo">
+
 <div class="wrap">
   <div class="card">
-<div class="kicker">Deidre &amp; Ty</div>
-  <h1>Find Your Seat</h1>
-    <p>Enter your name below to discover your table and seat.</p>
-   <input type="text" id="guestName" placeholder="Enter your full name">
+
+    <div class="kicker">Deidre &amp; Ty</div>
+
+    <h1>Find Your Seat</h1>
+
+    <p>
+      Enter your name below to discover your table and seat.
+    </p>
+
+    <input
+      type="text"
+      id="guestName"
+      placeholder="Enter your full name"
+      autocomplete="off">
+
     <button onclick="findSeat()">Find My Seat</button>
+
     <div id="result"></div>
+
   </div>
 </div>
-  <script>
-    const guests = {
+
+<script>
+const guests = {
 "Tye Kelly": { table: 1, seat: 1 },
 "Deirde Livingston": { table: 1, seat: 2 },
 "Alexis Oliver": { table: 2, seat: 1 },
@@ -169,6 +212,7 @@ button {
 "Chianti Williams": { table: 2, seat: 6 },
 "Constatine Szanova": { table: 2, seat: 7 },
 "Kai Hood-Gillory": { table: 2, seat: 8 },
+
 "Kia Moore": { table: 3, seat: 1 },
 "Wayne Journee": { table: 3, seat: 2 },
 "Tyrion Moore": { table: 3, seat: 3 },
@@ -177,6 +221,7 @@ button {
 "Lamar Ford": { table: 3, seat: 6 },
 "Demetrius Harris": { table: 3, seat: 7 },
 "Brittany Russ": { table: 3, seat: 8 },
+
 ". Shine": { table: 4, seat: 1 },
 "EBONY WILLIAMS": { table: 4, seat: 2 },
 "Sharon Cuiellette": { table: 4, seat: 3 },
@@ -185,14 +230,15 @@ button {
 "April Joseph": { table: 4, seat: 6 },
 "Cassandra Crowley": { table: 4, seat: 7 },
 "Lashunda Lewis": { table: 4, seat: 8 },
-"Guest Russ": { table: 9, seat: 1 },
-"Druri Rice": { table: 5, seat: 2 },
+
+"Druri Rice": { table: 5, seat: 1 },
 "Chastity Mc Swheeney": { table: 5, seat: 3 },
 "Kerrin Jackson": { table: 5, seat: 4 },
 "Ja'Hiya Davis": { table: 5, seat: 5 },
 "Alyssa Williams": { table: 5, seat: 6 },
 "rachel pino": { table: 5, seat: 7 },
 "Kennedy Brumfield": { table: 5, seat: 8 },
+
 "terryan turner": { table: 6, seat: 1 },
 "yachi edwards": { table: 6, seat: 2 },
 "Quiana Garrison": { table: 6, seat: 3 },
@@ -201,6 +247,7 @@ button {
 "Shalita Simeon": { table: 6, seat: 6 },
 "Chrystal Quest-Pierre": { table: 6, seat: 7 },
 "Danielle Oxley": { table: 6, seat: 8 },
+
 "Florence Scott": { table: 7, seat: 1 },
 "Reeva LaGarde": { table: 7, seat: 2 },
 "Jasmine Pharr": { table: 7, seat: 3 },
@@ -209,6 +256,7 @@ button {
 "Anthony Beseckie": { table: 7, seat: 6 },
 "Dawn Lawson": { table: 7, seat: 7 },
 "Mike Lawson": { table: 7, seat: 8 },
+
 "Sheree Turner": { table: 8, seat: 1 },
 "Maurice Brownlee": { table: 8, seat: 2 },
 "Brandon Woods": { table: 8, seat: 3 },
@@ -217,14 +265,16 @@ button {
 "Viviana Pena": { table: 8, seat: 6 },
 "Kem Hassan": { table: 8, seat: 7 },
 "Jasmine Pena": { table: 8, seat: 8 },
-"Druri Rice": { table: 5, seat: 1 },      
+
+"Guest Russ": { table: 9, seat: 1 },
 "Jennice LeSure": { table: 9, seat: 2 },
 "Jasmine Powell": { table: 9, seat: 3 },
 "Elise Clark": { table: 9, seat: 4 },
 "Quientella Thornton-Nicholas": { table: 9, seat: 5 },
 "Julia Turner": { table: 9, seat: 6 },
 "Tyra Mercadel": { table: 9, seat: 7 },
-"Yasmine Martinez": { table: 9, seat: 8 },      
+"Yasmine Martinez": { table: 9, seat: 8 },
+
 "Kimberlin Pittman": { table: 10, seat: 1 },
 "Daizha Dillon": { table: 10, seat: 2 },
 "Michelle Robair": { table: 10, seat: 3 },
@@ -232,6 +282,7 @@ button {
 "Tyshai Singleton": { table: 10, seat: 5 },
 "Kathleen Maston": { table: 10, seat: 6 },
 "Michelle Gurley": { table: 10, seat: 7 },
+
 "NICOLE MILLON": { table: 11, seat: 1 },
 "CHRISTIAN M": { table: 11, seat: 2 },
 "PARIS M": { table: 11, seat: 3 },
@@ -239,6 +290,7 @@ button {
 "Eki Owie-Odion": { table: 11, seat: 5 },
 "DEMETRIUS Anderson": { table: 11, seat: 6 },
 "Melissa Barras": { table: 11, seat: 7 },
+
 "Helen Pritchett": { table: 12, seat: 1 },
 "Philisha York": { table: 12, seat: 2 },
 "Vanita Jacobs": { table: 12, seat: 3 },
@@ -247,6 +299,7 @@ button {
 "Earl Harris": { table: 12, seat: 6 },
 "Denzil Thomas": { table: 12, seat: 7 },
 "Gina Signorelli": { table: 12, seat: 8 },
+
 "John Smith": { table: 13, seat: 1 },
 "Tyrone Rhodes": { table: 13, seat: 2 },
 "Cherita Russ": { table: 13, seat: 3 },
@@ -254,6 +307,7 @@ button {
 "Daina Allen": { table: 13, seat: 5 },
 "Pamela Pittman": { table: 13, seat: 6 },
 "Sonya B": { table: 13, seat: 7 },
+
 "Alicia Hicks": { table: 14, seat: 1 },
 "Jimmy Hicks l": { table: 14, seat: 2 },
 "Mariah McGowen": { table: 14, seat: 3 },
@@ -262,6 +316,7 @@ button {
 "Joycelyn Cash": { table: 14, seat: 6 },
 "Brittany Thompson": { table: 14, seat: 7 },
 "Jamal Thompson": { table: 14, seat: 8 },
+
 "Rhonda Gaines": { table: 15, seat: 1 },
 "Reiona Gaines": { table: 15, seat: 2 },
 "Alfred Gaines": { table: 15, seat: 3 },
@@ -270,6 +325,7 @@ button {
 "Valerie Bazile": { table: 15, seat: 6 },
 "John Bazile": { table: 15, seat: 7 },
 "Torrence Adams": { table: 15, seat: 8 },
+
 "Jamaal Jiles": { table: 16, seat: 1 },
 "Kionna Kelley": { table: 16, seat: 2 },
 "Zayne Journee": { table: 16, seat: 3 },
@@ -278,6 +334,7 @@ button {
 "Debra Stewart": { table: 16, seat: 6 },
 "Santana Morgan": { table: 16, seat: 7 },
 "April Calahan": { table: 16, seat: 8 },
+
 "Birdie Gaines": { table: 17, seat: 1 },
 "Mary Derouen": { table: 17, seat: 2 },
 "Mary Morgan": { table: 17, seat: 3 },
@@ -286,6 +343,7 @@ button {
 "Rojai Brown": { table: 17, seat: 6 },
 "Thoris Kelley": { table: 17, seat: 7 },
 "Darlene Morris": { table: 17, seat: 8 },
+
 "Joan Kelley": { table: 18, seat: 1 },
 "Wendell Wilson": { table: 18, seat: 2 },
 "Gail Kelley": { table: 18, seat: 3 },
@@ -294,6 +352,7 @@ button {
 "Ingrid DeRouen": { table: 18, seat: 6 },
 "Frank Bradwell": { table: 18, seat: 7 },
 "Aldofus Wilson": { table: 18, seat: 8 },
+
 "Charles Johnson": { table: 19, seat: 1 },
 "Cheryl Moffett": { table: 19, seat: 2 },
 "Karen Henderson": { table: 19, seat: 3 },
@@ -302,6 +361,7 @@ button {
 "Freddie Mcknight": { table: 19, seat: 6 },
 "Lisa Lablanc": { table: 19, seat: 7 },
 "Ernest Bradley": { table: 19, seat: 8 },
+
 "Eboni Howard": { table: 20, seat: 1 },
 "Michelle Dumas": { table: 20, seat: 2 },
 "Micheal Dumas": { table: 20, seat: 3 },
@@ -310,6 +370,7 @@ button {
 "Kim Jones": { table: 20, seat: 6 },
 "Michell Martin": { table: 20, seat: 7 },
 "Kennitria Martin": { table: 20, seat: 8 },
+
 "Monique Gilmore": { table: 21, seat: 1 },
 "Patsy Blackmon": { table: 21, seat: 2 },
 "Kelly Whitaker": { table: 21, seat: 3 },
@@ -317,6 +378,7 @@ button {
 "Tara Johnson": { table: 21, seat: 5 },
 "Elaine Johnson": { table: 21, seat: 6 },
 "Janez Eli": { table: 21, seat: 7 },
+
 "Ashleigh Berryhill": { table: 22, seat: 1 },
 "Cathy Smiley": { table: 22, seat: 2 },
 "Lisa Leguaux": { table: 22, seat: 3 },
@@ -325,28 +387,39 @@ button {
 "Emile Harris": { table: 22, seat: 6 },
 "Lake Moss": { table: 22, seat: 7 },
 "Gilbert Williams": { table: 22, seat: 8 },
+
 "Theron Everage": { table: 23, seat: 1 },
 "Kaieta Everage": { table: 23, seat: 2 },
 "Chris kesner": { table: 23, seat: 3 },
 "Courtney Kesner": { table: 23, seat: 4 },
 "Lance Kelley": { table: 23, seat: 5 },
+
 "Brandi Jonhson": { table: 24, seat: 1 },
 "Melissa Williams": { table: 24, seat: 2 },
 "Jorielle Odum": { table: 24, seat: 3 },
-"Brittany Cobb": { table: 24, seat: 4 },
-                     };
+"Brittany Cobb": { table: 24, seat: 4 }
+};
 
 function findSeat() {
   const name = document.getElementById("guestName").value.trim();
   const result = document.getElementById("result");
 
   if (guests[name]) {
-   result.innerHTML = `You are seated at <strong style="font-size:32px;">Table ${guests[name].table}</strong>, <strong style="font-size:32px;">Seat ${guests[name].seat}</strong>.`;
+    result.innerHTML =
+      `You are seated at <strong style="font-size:32px;">Table ${guests[name].table}</strong>, <strong style="font-size:32px;">Seat ${guests[name].seat}</strong>.`;
   } else {
-    result.innerHTML = "Name not found. Please check the spelling and try again.";
+    result.innerHTML =
+      "Name not found. Please check the spelling and try again.";
   }
 }
 
+document.getElementById("guestName").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    findSeat();
+  }
+});
 </script>
+
 </body>
 </html>
+```
