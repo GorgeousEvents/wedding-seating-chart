@@ -3,38 +3,201 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Find Your Seat</title>
-<style>
-  :root { --brown:#4a2a20; --blue:#1e3a5f; --gold:#c9a227; --ivory:#fffaf0; }
-  * { box-sizing:border-box; }
-    .couple-photo {
-    display: block;
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    margin: 0 auto 25px;
-    border-radius: 18px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-  }
-  body { margin:0; min-height:100vh; font-family:Georgia, 'Times New Roman', serif;
-  background:linear-gradient(135deg,#fff9f7,#f8e7e9 48%,#f6efe4); color:var(--brown); }
-  .wrap { max-width:680px; margin:auto; padding:28px 18px 40px; }
-  .card { background:#fffdf8; border:1px solid rgba(201,162,39,.55); border-radius:22px;
-  box-shadow:0 20px 50px rgba(74,42,32,.18); padding:38px 28px; text-align:center; }
-  .kicker { letter-spacing:.22em; text-transform:uppercase; color:#b58b3a; font-size:15px; font-weight:bold; margin-bottom:8px; }
- h1 { margin:10px 0 8px; font-size:44px; color:#4a2a20; font-weight:normal; letter-spacing:.02em; }
- p { color:#5b514b; font-size:20px; line-height:1.6; margin:10px 0 24px; }
-input { width:100%; padding:19px 20px; border:2px solid #d8cbb9; border-radius:16px; font-size:20px; outline:none; text-align:center; background:#fff; }
-input:focus { border-color:var(--gold); }
+<style>:root {
+  --brown:#4a2a20;
+  --blue:#0b3157;
+  --gold:#c9a227;
+  --ivory:#fffaf0;
+}
 
-button { margin-top:14px; width:100%; padding:18px; border:0; border-radius:16px; background:var(--blue); color:white; font-size:21px; font-weight:bold; letter-spacing:.05em; cursor:pointer; box-shadow:0 8px 22px rgba(74,42,32,.2); }
+* {
+  box-sizing:border-box;
+}
 
-#result { margin-top:20px; text-align:left; font-size:28px; line-height:1.5; }
+body {
+  margin:0;
+  min-height:100vh;
+  font-family:Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at top left, rgba(11,49,87,.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(201,162,39,.20), transparent 30%),
+    linear-gradient(135deg,#fffaf0,#f6eee1 48%,#eef3f8);
+  color:var(--brown);
+  overflow-x:hidden;
+}
 
-.result { background:#fff; border-left:6px solid var(--gold); border-radius:14px; font-size:22px; padding:17px; margin:10px 0; box-shadow:0 5px 16px rgba(0,0,0,.07); }
-  .name { font-size:20px; font-weight:700; }
-  .table { font-size:28px; color:var(--blue); font-weight:700; margin-top:6px; }
-  .seat { color:#5b514b; margin-top:3px; }
-  .note { font-size:12px; margin-top:22px; color:#766c65; }
+body::before,
+body::after {
+  content:"";
+  position:fixed;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 35%,#0b3157 0 18%,transparent 19%),
+    radial-gradient(circle at 65% 35%,#0b3157 0 18%,transparent 19%),
+    radial-gradient(circle at 35% 65%,#0b3157 0 18%,transparent 19%),
+    radial-gradient(circle at 65% 65%,#0b3157 0 18%,transparent 19%),
+    radial-gradient(circle,#fffaf0 0 12%,#c9a227 13% 18%,transparent 19%);
+  opacity:.9;
+  z-index:0;
+}
+
+body::before {
+  top:-45px;
+  left:-45px;
+  transform:rotate(-18deg);
+}
+
+body::after {
+  right:-45px;
+  bottom:-45px;
+  transform:rotate(18deg);
+}
+
+.couple-photo {
+  display:block;
+  width:100%;
+  max-width:500px;
+  height:auto;
+  margin:0 auto 25px;
+  border:6px solid var(--gold);
+  border-radius:24px;
+  box-shadow:0 12px 35px rgba(74,42,32,.28);
+  position:relative;
+  z-index:2;
+}
+
+.wrap {
+  max-width:680px;
+  margin:auto;
+  padding:28px 18px 45px;
+  position:relative;
+  z-index:2;
+}
+
+.card {
+  background:rgba(255,253,248,.97);
+  border:2px solid var(--gold);
+  border-radius:28px;
+  box-shadow:0 20px 50px rgba(74,42,32,.22);
+  padding:38px 28px;
+  text-align:center;
+  position:relative;
+}
+
+.card::before,
+.card::after {
+  content:"✦";
+  position:absolute;
+  color:var(--gold);
+  font-size:42px;
+  opacity:.85;
+}
+
+.card::before {
+  top:12px;
+  left:18px;
+}
+
+.card::after {
+  bottom:12px;
+  right:18px;
+}
+
+.kicker {
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:#b58b3a;
+  font-size:15px;
+  font-weight:bold;
+  margin-bottom:8px;
+}
+
+h1 {
+  margin:10px 0 8px;
+  font-size:44px;
+  color:#4a2a20;
+  font-weight:normal;
+  letter-spacing:.02em;
+}
+
+p {
+  color:#5b514b;
+  font-size:20px;
+  line-height:1.6;
+  margin:10px 0 24px;
+}
+
+input {
+  width:100%;
+  padding:19px 20px;
+  border:2px solid #d8cbb9;
+  border-radius:16px;
+  font-size:20px;
+  outline:none;
+  text-align:center;
+  background:#fff;
+}
+
+input:focus {
+  border-color:var(--gold);
+}
+
+button {
+  margin-top:14px;
+  width:100%;
+  padding:18px;
+  border:2px solid var(--gold);
+  border-radius:16px;
+  background:var(--blue);
+  color:white;
+  font-size:21px;
+  font-weight:bold;
+  letter-spacing:.05em;
+  cursor:pointer;
+  box-shadow:0 8px 22px rgba(74,42,32,.2);
+}
+
+#result {
+  margin-top:20px;
+  text-align:left;
+  font-size:28px;
+  line-height:1.5;
+}
+
+.result {
+  background:#fff;
+  border-left:6px solid var(--gold);
+  border-radius:14px;
+  font-size:22px;
+  padding:17px;
+  margin:10px 0;
+  box-shadow:0 5px 16px rgba(0,0,0,.07);
+}
+
+.name {
+  font-size:20px;
+  font-weight:700;
+}
+
+.table {
+  font-size:28px;
+  color:var(--blue);
+  font-weight:700;
+  margin-top:6px;
+}
+
+.seat {
+  color:#5b514b;
+  margin-top:3px;
+}
+
+.note {
+  font-size:12px;
+  margin-top:22px;
+  color:#766c65;
+}
 </style>
 </head>
 <body>
